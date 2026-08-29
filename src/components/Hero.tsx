@@ -43,14 +43,20 @@ export default function Hero({ lang }: { lang: Locale }) {
         {/* Right column — statement */}
         <div>
           <Reveal>
-            <h1 className="text-[clamp(2.75rem,7vw,6.5rem)] font-medium leading-[1] tracking-[-0.03em] [hyphens:auto]">
-              {t.hero.headline}
+            <h1 className="text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.98] tracking-[-0.03em] [hyphens:auto]">
+              {siteMeta.name}
             </h1>
           </Reveal>
 
-          <div className="mt-8 max-w-xl space-y-4">
+          <Reveal delay={0.05}>
+            <p className="mt-4 text-xl font-medium tracking-[-0.01em] text-[var(--color-muted)] sm:text-2xl">
+              {t.hero.role}
+            </p>
+          </Reveal>
+
+          <div className="mt-7 max-w-xl space-y-4">
             {t.hero.paragraphs.map((p, i) => (
-              <Reveal key={i} delay={0.08 + i * 0.05}>
+              <Reveal key={i} delay={0.12 + i * 0.05}>
                 <p className="text-lg leading-[1.3] text-[var(--color-fg)]">{p}</p>
               </Reveal>
             ))}

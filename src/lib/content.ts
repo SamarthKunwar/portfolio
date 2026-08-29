@@ -169,7 +169,7 @@ export type Dict = {
     readCaseStudy: string;
     footerBuilt: string;
   };
-  hero: { status: string; headline: string; paragraphs: string[] };
+  hero: { status: string; role: string; paragraphs: string[] };
   about: { heading: string; paragraphs: string[]; facts: Fact[] };
   experience: { heading: string; lead: string; items: TimelineItem[] };
   education: { heading: string; lead: string; items: TimelineItem[] };
@@ -221,10 +221,10 @@ const en: Dict = {
   },
   hero: {
     status: "Open to working-student roles & internships",
-    headline: "CS student & software developer",
+    role: "CS student & software developer",
     paragraphs: [
-      "Fifth-semester B.Sc. Computer Science student with hands-on experience taking AI and digitalization prototypes from idea to working software.",
-      "I work with LLMs, RAG and semantic search, and wire AI models, APIs and data sources into cloud-native applications that actually run.",
+      "Fifth-semester B.Sc. Computer Science student. I build full-stack applications end to end: backend, database, frontend and cloud deployment.",
+      "AI is where a lot of my curiosity goes right now. I build LLM and RAG tools on the side and use them to turn ideas into working prototypes quickly.",
     ],
   },
   about: {
@@ -490,11 +490,10 @@ const de: Dict = {
   },
   hero: {
     status: "Offen für Werkstudentenstellen & Praktika",
-    // Soft hyphens (­) so long German compounds break cleanly.
-    headline: "Informatik­student & Software­entwickler",
+    role: "Informatikstudent & Softwareentwickler",
     paragraphs: [
-      "Informatikstudent (B.Sc.) im fünften Semester mit praktischer Erfahrung darin, KI- und Digitalisierungsprototypen von der Idee bis zur lauffähigen Software zu bringen.",
-      "Ich arbeite mit LLMs, RAG und semantischer Suche und verbinde KI-Modelle, APIs und Datenquellen zu cloud-nativen Anwendungen, die tatsächlich laufen.",
+      "Informatikstudent (B.Sc.) im fünften Semester. Ich baue Full-Stack-Anwendungen von Anfang bis Ende: Backend, Datenbank, Frontend und Cloud-Deployment.",
+      "KI ist gerade das Thema, das mich am meisten reizt. In meiner Freizeit baue ich LLM- und RAG-Tools und nutze sie, um Ideen schnell in lauffähige Prototypen zu verwandeln.",
     ],
   },
   about: {

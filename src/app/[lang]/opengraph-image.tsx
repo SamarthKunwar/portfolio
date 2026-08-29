@@ -16,7 +16,6 @@ export default async function OgImage({
 }) {
   const { lang } = await params;
   const t = getDict(isLocale(lang) ? lang : "en");
-  const headline = t.hero.headline.replace(/­/g, "");
 
   return new ImageResponse(
     (
@@ -33,31 +32,37 @@ export default async function OgImage({
           fontFamily: "sans-serif",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 14,
-            fontSize: 26,
-            fontWeight: 600,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-          }}
-        >
-          <div style={{ width: 12, height: 12, borderRadius: 999, background: "#2563eb" }} />
-          {siteMeta.name}
+        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <div
+            style={{
+              width: 14,
+              height: 14,
+              borderRadius: 999,
+              background: "#2563eb",
+            }}
+          />
+          <div
+            style={{
+              fontSize: 26,
+              fontWeight: 600,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "#6b6b6b",
+            }}
+          >
+            {t.hero.role}
+          </div>
         </div>
 
         <div
           style={{
-            fontSize: 92,
-            fontWeight: 600,
-            lineHeight: 1.02,
-            letterSpacing: "-0.03em",
-            maxWidth: 980,
+            fontSize: 132,
+            fontWeight: 700,
+            lineHeight: 1,
+            letterSpacing: "-0.04em",
           }}
         >
-          {headline}
+          {siteMeta.name}
         </div>
 
         <div style={{ display: "flex", fontSize: 30, color: "#6b6b6b" }}>
