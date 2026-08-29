@@ -161,7 +161,11 @@ export default async function ProjectPage({
                 priority
               />
             ) : project.cover ? (
-              <ProjectCover variant={project.cover} className="absolute inset-0" />
+              <ProjectCover
+                variant={project.cover}
+                className="absolute inset-0"
+                animate={false}
+              />
             ) : null}
           </div>
 

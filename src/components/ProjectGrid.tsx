@@ -1,0 +1,129 @@
+"use client";
+
+import { useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import type { Locale, Project } from "@/lib/content";
+import ProjectCover from "./ProjectCover";
+
+function ProjectCard({
+  project,
+  lang,
+  readMore,
+  index,
+}: {
+  project: Project;
+  lang: Locale;
+  readMore: string;
+  index: number;
+}) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const coverY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduce ? ["0%", "0%"] : ["-9%", "9%"],
+  );
+
+  // Diagonal wave stagger across the 2-column grid (top-left first).
+  const delay = reduce ? 0 : (Math.floor(index / 2) + (index % 2)) * 0.09;
+
+  return (
+    <motion.article
+      ref={ref}
+      className="group h-full"
+      initial={reduce ? false : { opacity: 0, y: 30, scale: 0.96 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <Link
+        href={`/${lang}/projects/${project.slug}`}
+        className="flex h-full flex-col overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_12px_40px_-12px_rgba(14,14,14,0.15)]"
+      >
+        <div className="relative aspect-[2/1] overflow-hidden border-b border-[var(--color-border)]">
+          <motion.div
+            style={{ y: coverY }}
+            className="absolute inset-x-0 -inset-y-[12%]"
+          >
+            {project.image ? (
+              <Image
+                src={project.image}
+                alt={`${project.name} preview`}
+                fill
+                sizes="(min-width: 640px) 520px, 100vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+            ) : project.cover ? (
+              <ProjectCover
+                variant={project.cover}
+                className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+            ) : null}
+          </motion.div>
+        </div>
+
+        <div className="flex flex-1 flex-col p-6">
+          <h3 className="text-lg font-semibold">{project.name}</h3>
+          <p className="mt-2 text-[var(--color-fg)]">{project.description}</p>
+
+          <ul className="mt-4 flex flex-wrap gap-1.5 pt-1">
+            {project.tech.map((tech) => (
+              <li
+                key={tech}
+                className="rounded-md bg-[var(--color-surface)] px-2 py-0.5 text-xs text-[var(--color-muted)]"
+              >
+                {tech}
+              </li>
+            ))}
+          </ul>
+
+          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-fg)]">
+            {readMore}
+            <ArrowRight
+              size={15}
+              aria-hidden
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </span>
+        </div>
+      </Link>
+    </motion.article>
+  );
+}
+
+export default function ProjectGrid({
+  projects,
+  lang,
+  readMore,
+}: {
+  projects: Project[];
+  lang: Locale;
+  readMore: string;
+}) {
+  return (
+    <div className="grid gap-5 sm:grid-cols-2">
+      {projects.map((project, i) => (
+        <ProjectCard
+          key={project.slug}
+          project={project}
+          lang={lang}
+          readMore={readMore}
+          index={i}
+        />
+      ))}
+    </div>
+  );
+}
