@@ -1,11 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+  type Variants,
+} from "framer-motion";
 import { getDict, siteMeta, socials, type Locale } from "@/lib/content";
 import CopyEmail from "./CopyEmail";
 import SocialIcon from "./SocialIcon";
 import RotatingRole from "./RotatingRole";
+import LocalTime from "./LocalTime";
 
 const container: Variants = {
   hidden: {},
@@ -35,6 +43,8 @@ const word: Variants = {
   },
 };
 
+const PHOTO_TILT = 12;
+
 export default function Hero({ lang }: { lang: Locale }) {
   const t = getDict(lang);
   const reduce = useReducedMotion();
@@ -44,40 +54,89 @@ export default function Hero({ lang }: { lang: Locale }) {
     : { variants: container, initial: "hidden" as const, animate: "visible" as const };
   const itemAnim = reduce ? {} : { variants: item };
 
+  // Photo tilts toward the pointer (same spring feel as the project cards).
+  const px = useMotionValue(0.5);
+  const py = useMotionValue(0.5);
+  const spring = { stiffness: 170, damping: 20 };
+  const photoRotateY = useSpring(
+    useTransform(px, [0, 1], [PHOTO_TILT, -PHOTO_TILT]),
+    spring,
+  );
+  const photoRotateX = useSpring(
+    useTransform(py, [0, 1], [-PHOTO_TILT, PHOTO_TILT]),
+    spring,
+  );
+  const onPhotoMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    px.set((e.clientX - r.left) / r.width);
+    py.set((e.clientY - r.top) / r.height);
+  };
+  const onPhotoLeave = () => {
+    px.set(0.5);
+    py.set(0.5);
+  };
+
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col justify-center pt-24 pb-16"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-24 pb-16"
     >
+      {!reduce ? (
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute left-[6%] top-[12%] h-[46vh] max-h-[540px] w-[46vh] max-w-[540px] rounded-full blur-[130px]"
+          style={{ backgroundColor: "var(--color-accent)", opacity: 0.14 }}
+          animate={{
+            x: [0, 60, -30, 0],
+            y: [0, -40, 30, 0],
+            scale: [1, 1.15, 0.95, 1],
+          }}
+          transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
+        />
+      ) : null}
+
       <motion.div
         {...anim}
-        className="container-page grid w-full gap-y-12 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:gap-x-12"
+        className="container-page relative z-10 grid w-full gap-y-12 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:gap-x-12"
       >
         {/* Left rail — meta */}
         <div className="flex flex-col gap-6">
           {siteMeta.photo ? (
-            <motion.div
-              {...itemAnim}
-              className="group relative aspect-square w-36 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]"
-            >
-              <Image
-                src={siteMeta.photo}
-                alt={siteMeta.name}
-                fill
-                sizes="144px"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                priority
-              />
-              {/* faint warm wash + inner hairline so the photo reads as part of the paper */}
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-[var(--color-accent)] opacity-[0.05] mix-blend-multiply"
-              />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-[var(--color-fg)]/10"
-              />
-            </motion.div>
+            <div className="w-36 [perspective:900px]">
+              <motion.div
+                {...itemAnim}
+                onMouseMove={reduce ? undefined : onPhotoMove}
+                onMouseLeave={reduce ? undefined : onPhotoLeave}
+                style={
+                  reduce
+                    ? undefined
+                    : {
+                        rotateX: photoRotateX,
+                        rotateY: photoRotateY,
+                        transformStyle: "preserve-3d",
+                      }
+                }
+                className="group relative aspect-square w-36 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]"
+              >
+                <Image
+                  src={siteMeta.photo}
+                  alt={siteMeta.name}
+                  fill
+                  sizes="144px"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                  priority
+                />
+                {/* faint warm wash + inner hairline so the photo reads as part of the paper */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-[var(--color-accent)] opacity-[0.05] mix-blend-multiply"
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-[var(--color-fg)]/10"
+                />
+              </motion.div>
+            </div>
           ) : null}
 
           <motion.div {...itemAnim} className="space-y-2">
@@ -103,6 +162,7 @@ export default function Hero({ lang }: { lang: Locale }) {
               {t.ui.basedIn}
             </p>
             <p className="text-sm text-[var(--color-fg)]">{t.location}</p>
+            <LocalTime lang={lang} />
           </motion.div>
         </div>
 
@@ -185,7 +245,7 @@ export default function Hero({ lang }: { lang: Locale }) {
         initial={reduce ? false : { opacity: 0 }}
         animate={reduce ? undefined : { opacity: 1 }}
         transition={{ delay: 1.1, duration: 0.6 }}
-        className="container-page mt-16 md:mt-24"
+        className="container-page relative z-10 mt-16 md:mt-24"
       >
         <span className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--color-muted)]">
           <motion.span

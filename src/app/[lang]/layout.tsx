@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Inter, Inter_Tight } from "next/font/google";
 import { getDict, isLocale, locales, siteMeta } from "@/lib/content";
 import ScrollProgress from "@/components/ScrollProgress";
+import GrainOverlay from "@/components/GrainOverlay";
 import "../globals.css";
 
 const display = Inter_Tight({
@@ -74,6 +75,7 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col">
         <ScrollProgress />
         {children}
+        <GrainOverlay />
       </body>
     </html>
   );
