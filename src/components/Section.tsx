@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 
 type SectionProps = {
   id: string;
@@ -26,18 +26,7 @@ export default function Section({
       }`}
     >
       <div className="container-page">
-        <Reveal>
-          <div className="mb-12 max-w-2xl">
-            <h2 className="text-2xl sm:text-3xl">
-              <span className="text-[var(--color-accent)]">/</span> {title}
-            </h2>
-            {lead ? (
-              <p className="mt-3 text-[var(--color-muted)] leading-relaxed">
-                {lead}
-              </p>
-            ) : null}
-          </div>
-        </Reveal>
+        <SectionHeading title={title} lead={lead} />
         {children}
       </div>
     </section>

@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Reveal from "./Reveal";
 
 export type TimelineEntry = {
@@ -9,12 +13,35 @@ export type TimelineEntry = {
 };
 
 export default function Timeline({ items }: { items: TimelineEntry[] }) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLOListElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 75%", "end 65%"],
+  });
+  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
-    <ol className="relative border-l border-[var(--color-border)]">
+    <ol ref={ref} className="relative">
+      {/* track + scroll-linked fill */}
+      <span className="absolute inset-y-0 left-0 w-px bg-[var(--color-border)]" />
+      <motion.span
+        aria-hidden
+        style={{ scaleY: reduce ? 1 : lineScale }}
+        className="absolute inset-y-0 left-0 w-px origin-top bg-[var(--color-muted)]"
+      />
+
       {items.map((item, i) => (
-        <Reveal as="li" key={item.title} delay={i * 0.05}>
+        <Reveal as="li" key={item.title} delay={i * 0.06}>
           <div className="relative pb-10 pl-6 last:pb-0">
-            <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-[var(--color-accent)]" />
+            <motion.span
+              className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-[var(--color-accent)]"
+              initial={reduce ? false : { scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true, margin: "0px 0px -20% 0px" }}
+              transition={{ type: "spring", stiffness: 400, damping: 15, delay: 0.1 }}
+              style={{ transformOrigin: "center" }}
+            />
             <div className="flex flex-wrap items-baseline justify-between gap-x-4">
               <h3 className="text-lg font-semibold">{item.title}</h3>
               <span className="text-sm text-[var(--color-muted)]">

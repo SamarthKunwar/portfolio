@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Inter, Inter_Tight } from "next/font/google";
 import { getDict, isLocale, locales, siteMeta } from "@/lib/content";
+import ScrollProgress from "@/components/ScrollProgress";
 import "../globals.css";
 
 const display = Inter_Tight({
@@ -70,7 +71,10 @@ export default async function RootLayout({
       data-scroll-behavior="smooth"
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ScrollProgress />
+        {children}
+      </body>
     </html>
   );
 }

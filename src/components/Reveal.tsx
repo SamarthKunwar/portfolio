@@ -12,12 +12,12 @@ type RevealProps = {
 };
 
 const variants: Variants = {
-  hidden: { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 18, filter: "blur(5px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
 };
 
 /**
- * Subtle scroll-reveal: a 12px fade-up that plays once on enter.
+ * Scroll-reveal: a blurred rise that eases in once on enter.
  * Renders a plain, fully-visible element under reduced-motion.
  */
 export default function Reveal({
@@ -41,8 +41,8 @@ export default function Reveal({
       variants={variants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-      transition={{ duration: 0.35, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      viewport={{ once: true, margin: "0px 0px -12% 0px" }}
+      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </MotionTag>
