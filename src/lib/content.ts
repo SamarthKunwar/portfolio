@@ -289,18 +289,17 @@ const en: Dict = {
         meta: "Oct 2025 to Present",
         location: "Kaiserslautern, Germany",
         points: [
-          "Currently in the 5th semester; ~125 ECTS so far, transferred in with about 60 recognised ECTS from prior study.",
+          "I moved here from Universität des Saarlandes at the start of the 3rd semester and have studied here since. Currently in my 5th semester.",
           "Coursework and projects focused on backend development, cloud infrastructure and machine learning.",
         ],
       },
       {
         title: "Universität des Saarlandes",
-        subtitle: "Bachelor Plus MINT",
-        meta: "Mar 2022 to Sep 2025",
+        subtitle: "B.Sc. Computer Science (first two semesters)",
+        meta: "Oct 2024 to Sep 2025",
         location: "Saarbrücken, Germany",
         points: [
-          "MINT study programme with a focus on Data Science and Computer Science.",
-          "Earned 90 ECTS, roughly 60 of which are credited toward the current degree.",
+          "The first two semesters of my Computer Science bachelor's, focused on Data Science and CS foundations.",
         ],
       },
       {
@@ -564,18 +563,17 @@ const de: Dict = {
         meta: "Okt. 2025 bis heute",
         location: "Kaiserslautern, Deutschland",
         points: [
-          "Aktuell im 5. Semester; bisher rund 125 ECTS, mit etwa 60 anerkannten ECTS aus dem Vorstudium.",
+          "Zum 3. Semester von der Universität des Saarlandes hierher gewechselt und seitdem hier. Aktuell im 5. Semester.",
           "Schwerpunkte in Backend-Entwicklung, Cloud-Infrastruktur und maschinellem Lernen.",
         ],
       },
       {
         title: "Universität des Saarlandes",
-        subtitle: "Bachelor Plus MINT",
-        meta: "März 2022 bis Sept. 2025",
+        subtitle: "B.Sc. Informatik (erste zwei Semester)",
+        meta: "Okt. 2024 bis Sept. 2025",
         location: "Saarbrücken, Deutschland",
         points: [
-          "MINT-Studienprogramm mit Fokus auf Data Science und Informatik.",
-          "90 ECTS erworben, davon rund 60 auf den aktuellen Studiengang angerechnet.",
+          "Die ersten zwei Semester meines Informatik-Bachelors, mit Fokus auf Data Science und Informatik-Grundlagen.",
         ],
       },
       {
