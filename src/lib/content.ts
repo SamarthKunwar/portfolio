@@ -175,7 +175,14 @@ export type Dict = {
     readCaseStudy: string;
     footerBuilt: string;
   };
-  hero: { status: string; role: string; paragraphs: string[] };
+  hero: {
+    status: string;
+    /** Canonical role, used for metadata / the OG image. */
+    role: string;
+    /** Cycled in the hero subtitle. */
+    roles: string[];
+    paragraphs: string[];
+  };
   about: { heading: string; paragraphs: string[]; facts: Fact[] };
   experience: { heading: string; lead: string; items: TimelineItem[] };
   education: { heading: string; lead: string; items: TimelineItem[] };
@@ -228,6 +235,12 @@ const en: Dict = {
   hero: {
     status: "Open to working-student roles & internships",
     role: "CS student & software developer",
+    roles: [
+      "software developer",
+      "backend & cloud engineer",
+      "AI & LLM builder",
+      "full-stack developer",
+    ],
     paragraphs: [
       "I'm a Computer Science student in my fifth semester, and I like building the whole thing: the database, the backend, the interface, and getting it deployed.",
       "Right now most of my curiosity goes into AI. I build small LLM and RAG tools and use them to get from an idea to something running, fast.",
@@ -497,6 +510,12 @@ const de: Dict = {
   hero: {
     status: "Offen für Werkstudentenstellen & Praktika",
     role: "Informatikstudent & Softwareentwickler",
+    roles: [
+      "Softwareentwickler",
+      "Backend- & Cloud-Entwickler",
+      "KI- & LLM-Entwickler",
+      "Full-Stack-Entwickler",
+    ],
     paragraphs: [
       "Ich studiere Informatik im fünften Semester und baue am liebsten das ganze Ding: Datenbank, Backend, Oberfläche, und am Ende steht es online.",
       "Im Moment dreht sich meine Neugier vor allem um KI. Ich baue kleine LLM- und RAG-Tools und nutze sie, um aus einer Idee schnell etwas Lauffähiges zu machen.",

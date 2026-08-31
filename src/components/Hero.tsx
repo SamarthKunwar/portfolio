@@ -5,6 +5,7 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { getDict, siteMeta, socials, type Locale } from "@/lib/content";
 import CopyEmail from "./CopyEmail";
 import SocialIcon from "./SocialIcon";
+import RotatingRole from "./RotatingRole";
 
 const container: Variants = {
   hidden: {},
@@ -126,7 +127,10 @@ export default function Hero({ lang }: { lang: Locale }) {
             {...itemAnim}
             className="mt-4 text-xl font-medium tracking-[-0.01em] text-[var(--color-muted)] sm:text-2xl"
           >
-            {t.hero.role}
+            {t.hero.role.split(" & ")[0]} &amp;{" "}
+            <span className="text-[var(--color-fg)]">
+              <RotatingRole roles={t.hero.roles} />
+            </span>
           </motion.p>
 
           <div className="mt-7 max-w-xl space-y-4">
