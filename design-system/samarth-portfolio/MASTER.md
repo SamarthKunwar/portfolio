@@ -17,26 +17,23 @@
 
 ### Color Palette
 
+Warm "golden-hour" repaint (2026-08-31) so the palette sits with the hero
+photo. Values below are what actually ships in `src/app/globals.css`.
+
 | Role | Hex | CSS Variable |
 |------|-----|--------------|
-| Primary | `#18181B` | `--color-primary` |
-| On Primary | `#FFFFFF` | `--color-on-primary` |
-| Secondary | `#3F3F46` | `--color-secondary` |
-| On Secondary | `#FFFFFF` | `--color-on-secondary` |
-| Accent/CTA | `#2563EB` | `--color-accent` |
+| Background (ivory paper) | `#FAF6EF` | `--color-bg` |
+| Surface (sand, tinted sections) | `#F2EBDD` | `--color-surface` |
+| Foreground (espresso ink) | `#241D15` | `--color-fg` |
+| Muted (warm taupe) | `#766857` | `--color-muted` |
+| Border (warm hairline) | `#E7DCCB` | `--color-border` |
+| Primary | `#2A2118` | `--color-primary` |
+| On Primary | `#FAF6EF` | `--color-on-primary` |
+| Accent/CTA (golden-hour amber) | `#B5551F` | `--color-accent` |
 | On Accent/CTA | `#FFFFFF` | `--color-on-accent` |
-| Background | `#FAFAFA` | `--color-background` |
-| Foreground | `#09090B` | `--color-foreground` |
-| Card | `#FFFFFF` | `--color-card` |
-| Card Foreground | `#09090B` | `--color-card-foreground` |
-| Muted | `#E8ECF0` | `--color-muted` |
-| Muted Foreground | `#475569` | `--color-muted-foreground` |
-| Border | `#E4E4E7` | `--color-border` |
-| Destructive | `#DC2626` | `--color-destructive` |
-| On Destructive | `#FFFFFF` | `--color-on-destructive` |
-| Ring | `#18181B` | `--color-ring` |
+| Accent hover | `#94441A` | `--color-accent-hover` |
 
-**Color Notes:** Monochrome + blue accent
+**Color Notes:** Warm ivory + espresso + golden-hour amber accent (was monochrome + blue).
 
 ### Typography
 

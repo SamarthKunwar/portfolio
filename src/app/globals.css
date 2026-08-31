@@ -2,22 +2,23 @@
 
 /*
  * Design system: Minimalism & Swiss Style (light only)
- * Palette: monochrome + blue accent · Type: Archivo / Space Grotesk
+ * Palette: warm ivory paper + espresso ink + golden-hour amber accent
+ * (tuned to sit with the hero photo). Type: Inter Tight / Inter
  * Generated with the ui-ux-pro-max skill — see /design-system/samarth-portfolio/MASTER.md
  */
 
 @theme {
-  --color-bg: #ffffff;
-  --color-surface: #f6f6f5;
-  --color-fg: #0e0e0e;
-  --color-muted: #6b6b6b;
-  --color-border: #e6e6e4;
+  --color-bg: #faf6ef;
+  --color-surface: #f2ebdd;
+  --color-fg: #241d15;
+  --color-muted: #766857;
+  --color-border: #e7dccb;
 
-  --color-primary: #18181b;
-  --color-on-primary: #ffffff;
-  --color-accent: #2563eb;
+  --color-primary: #2a2118;
+  --color-on-primary: #faf6ef;
+  --color-accent: #b5551f;
   --color-on-accent: #ffffff;
-  --color-accent-hover: #1d4ed8;
+  --color-accent-hover: #94441a;
 
   --font-sans: var(--font-sans-src), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-display-src), ui-sans-serif, system-ui, sans-serif;

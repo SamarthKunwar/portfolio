@@ -26,8 +26,8 @@ export default async function OgImage({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#ffffff",
-          color: "#0e0e0e",
+          background: "#faf6ef",
+          color: "#241d15",
           padding: "72px 80px",
           fontFamily: "sans-serif",
         }}
@@ -38,7 +38,7 @@ export default async function OgImage({
               width: 14,
               height: 14,
               borderRadius: 999,
-              background: "#2563eb",
+              background: "#b5551f",
             }}
           />
           <div
@@ -47,7 +47,7 @@ export default async function OgImage({
               fontWeight: 600,
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              color: "#6b6b6b",
+              color: "#766857",
             }}
           >
             {t.hero.role}
@@ -65,7 +65,7 @@ export default async function OgImage({
           {siteMeta.name}
         </div>
 
-        <div style={{ display: "flex", fontSize: 30, color: "#6b6b6b" }}>
+        <div style={{ display: "flex", fontSize: 30, color: "#766857" }}>
           {t.location} · {siteMeta.url.replace(/^https?:\/\//, "")}
         </div>
       </div>

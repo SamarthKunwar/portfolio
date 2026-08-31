@@ -65,17 +65,17 @@ export default function Hero({ lang }: { lang: Locale }) {
                 alt={siteMeta.name}
                 fill
                 sizes="144px"
-                className="object-cover grayscale contrast-[1.05] transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.04] group-hover:grayscale-0 group-hover:contrast-100 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                 priority
               />
-              {/* tint the photo toward the page palette so it sits with the neutrals */}
+              {/* faint warm wash + inner hairline so the photo reads as part of the paper */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute inset-0 bg-[var(--color-fg)] opacity-[0.06] mix-blend-multiply transition-opacity duration-700 group-hover:opacity-0"
+                className="pointer-events-none absolute inset-0 bg-[var(--color-accent)] opacity-[0.05] mix-blend-multiply"
               />
               <span
                 aria-hidden
-                className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5"
+                className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-[var(--color-fg)]/10"
               />
             </motion.div>
           ) : null}

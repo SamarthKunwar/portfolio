@@ -85,7 +85,7 @@ function ProjectCard({
       >
         <Link
           href={`/${lang}/projects/${project.slug}`}
-          className="flex h-full flex-col overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] transition-[border-color,box-shadow] duration-300 hover:border-[var(--color-primary)] hover:shadow-[0_18px_50px_-16px_rgba(14,14,14,0.18)]"
+          className="flex h-full flex-col overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] transition-[border-color,box-shadow] duration-300 hover:border-[var(--color-primary)] hover:shadow-[0_18px_50px_-16px_rgba(58,38,20,0.20)]"
         >
           <div className="relative aspect-[2/1] overflow-hidden border-b border-[var(--color-border)]">
             <motion.div
