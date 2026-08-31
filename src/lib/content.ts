@@ -253,6 +253,7 @@ const en: Dict = {
       "I've been writing code for about five years. The theory (algorithms, systems, the maths underneath) I picked up at Universität des Saarlandes; the habit of actually finishing and shipping things came after I moved to Kaiserslautern and started taking projects all the way to done. Somewhere in there it stopped feeling like coursework and started feeling like the thing I want to do.",
       "On the software side I've taken a Java, Spring Boot and React marketplace from prototype to a Kubernetes cluster with a real CI/CD pipeline, and written a handful of REST APIs from scratch. On the AI side I build with LLMs, RAG and semantic search (FAISS, Sentence-Transformers, local models through Ollama) and wire them into things that hold up outside a notebook. When a new tool or paper lands, I usually have a small version of it running by the weekend.",
       "I lean on AI coding agents (Claude Code, Copilot, ChatGPT) every day to get from an idea to a working prototype fast. I do my best work with a clear goal and room to figure out the how, I pick up new tech quickly, and I'm looking for a working-student role or internship where I can build real things next to people who have shipped more than I have.",
+      "Away from the keyboard I play a lot of chess and get outside as much as I can, hiking and staying active in nature. It is how I think things through and come back to the screen with a clearer head.",
     ],
     facts: [
       { label: "Based in", value: "Saarbrücken, Germany" },
@@ -260,6 +261,7 @@ const en: Dict = {
       { label: "Focus", value: "Full-stack apps · AI & LLM tools" },
       { label: "Currently", value: "B.Sc. Applied CS · 5th semester" },
       { label: "Languages", value: "German C1 · English & Hindi native" },
+      { label: "Away from code", value: "Chess · hiking · the outdoors" },
     ],
   },
   experience: {
@@ -527,6 +529,7 @@ const de: Dict = {
       "Ich programmiere seit etwa fünf Jahren. Die Theorie (Algorithmen, Systeme, die Mathematik darunter) habe ich an der Universität des Saarlandes gelernt; die Angewohnheit, Dinge wirklich fertigzustellen und auszuliefern, kam, nachdem ich nach Kaiserslautern gewechselt bin und Projekte bis zum Ende gebracht habe. Irgendwann hat es sich nicht mehr wie Studienstoff angefühlt, sondern wie das, was ich machen will.",
       "Auf der Softwareseite habe ich einen Marktplatz mit Java, Spring Boot und React vom Prototyp bis auf einen Kubernetes-Cluster mit echter CI/CD-Pipeline gebracht und einige REST-APIs von Grund auf geschrieben. Auf der KI-Seite baue ich mit LLMs, RAG und semantischer Suche (FAISS, Sentence-Transformers, lokale Modelle über Ollama) und verbinde sie zu Dingen, die auch außerhalb eines Notebooks funktionieren. Wenn ein neues Tool oder Paper erscheint, läuft bei mir meist bis zum Wochenende eine kleine Version davon.",
       "Ich nutze täglich KI-Coding-Agents (Claude Code, Copilot, ChatGPT), um schnell von einer Idee zu einem lauffähigen Prototyp zu kommen. Meine beste Arbeit mache ich mit einem klaren Ziel und Freiraum für das Wie, ich eigne mir neue Technik schnell an, und ich suche eine Werkstudentenstelle oder ein Praktikum, in dem ich echte Dinge bauen und von Leuten lernen kann, die mehr ausgeliefert haben als ich.",
+      "Abseits der Tastatur spiele ich viel Schach und bin so oft wie möglich draußen, beim Wandern und in Bewegung in der Natur. So denke ich Dinge durch und komme mit klarerem Kopf an den Bildschirm zurück.",
     ],
     facts: [
       { label: "Standort", value: "Saarbrücken, Deutschland" },
@@ -534,6 +537,7 @@ const de: Dict = {
       { label: "Schwerpunkt", value: "Full-Stack-Apps · KI- & LLM-Tools" },
       { label: "Aktuell", value: "B.Sc. Angewandte Informatik · 5. Semester" },
       { label: "Sprachen", value: "Deutsch C1 · Englisch & Hindi Muttersprache" },
+      { label: "Abseits vom Code", value: "Schach · Wandern · Natur" },
     ],
   },
   experience: {
