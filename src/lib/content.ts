@@ -273,18 +273,25 @@ const en: Dict = {
         meta: "Oct 2025 to Present",
         location: "Kaiserslautern, Germany",
         points: [
-          "I moved here from Universität des Saarlandes at the start of the 3rd semester and have studied here since. Currently in my 5th semester.",
+          "I moved here from Universität des Saarlandes at the start of the 4th semester and have studied here since. Currently in my 5th semester.",
           "Coursework and projects focused on backend development, cloud infrastructure and machine learning.",
         ],
       },
       {
         title: "Universität des Saarlandes",
-        subtitle: "B.Sc. Computer Science (first two semesters)",
-        meta: "Oct 2024 to Sep 2025",
+        subtitle: "B.Sc. + MINT Computer Science",
+        meta: "2022 to 2025",
         location: "Saarbrücken, Germany",
         points: [
-          "The first two semesters of my Computer Science bachelor's, focused on Data Science and CS foundations.",
+          "Earned my German Hochschulzugangsberechtigung through the VSI-MINT programme, then completed the first three semesters of my Computer Science bachelor's before moving to Hochschule Kaiserslautern.",
         ],
+      },
+      {
+        title: "Universität des Saarlandes",
+        subtitle: "Deutschkurs (DSH certificate)",
+        meta: "2021 to 2022",
+        location: "Saarbrücken, Germany",
+        points: [],
       },
       {
         title: "St. Thomas School, Dwarka",
@@ -549,18 +556,25 @@ const de: Dict = {
         meta: "Okt. 2025 bis heute",
         location: "Kaiserslautern, Deutschland",
         points: [
-          "Zum 3. Semester von der Universität des Saarlandes hierher gewechselt und seitdem hier. Aktuell im 5. Semester.",
+          "Zum 4. Semester von der Universität des Saarlandes hierher gewechselt und seitdem hier. Aktuell im 5. Semester.",
           "Schwerpunkte in Backend-Entwicklung, Cloud-Infrastruktur und maschinellem Lernen.",
         ],
       },
       {
         title: "Universität des Saarlandes",
-        subtitle: "B.Sc. Informatik (erste zwei Semester)",
-        meta: "Okt. 2024 bis Sept. 2025",
+        subtitle: "B.Sc. + MINT Informatik",
+        meta: "2022 bis 2025",
         location: "Saarbrücken, Deutschland",
         points: [
-          "Die ersten zwei Semester meines Informatik-Bachelors, mit Fokus auf Data Science und Informatik-Grundlagen.",
+          "Über das VSI-MINT-Programm meine Hochschulzugangsberechtigung erhalten und anschließend die ersten drei Semester meines Informatik-Bachelors absolviert, bevor ich an die Hochschule Kaiserslautern gewechselt bin.",
         ],
+      },
+      {
+        title: "Universität des Saarlandes",
+        subtitle: "Deutschkurs (DSH-Zeugnis)",
+        meta: "2021 bis 2022",
+        location: "Saarbrücken, Deutschland",
+        points: [],
       },
       {
         title: "St. Thomas School, Dwarka",
