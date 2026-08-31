@@ -238,7 +238,7 @@ const en: Dict = {
     roles: [
       "software developer",
       "backend & cloud engineer",
-      "AI & LLM builder",
+      "AI & ML enthusiast",
       "full-stack developer",
     ],
     paragraphs: [
@@ -513,7 +513,7 @@ const de: Dict = {
     roles: [
       "Softwareentwickler",
       "Backend- & Cloud-Entwickler",
-      "KI- & LLM-Entwickler",
+      "KI- & ML-Enthusiast",
       "Full-Stack-Entwickler",
     ],
     paragraphs: [
