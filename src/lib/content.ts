@@ -242,7 +242,7 @@ const en: Dict = {
       "full-stack developer",
     ],
     paragraphs: [
-      "I'm a Computer Science student in my fifth semester, and I like building the whole thing: the database, the backend, the interface, and getting it deployed.",
+      "I'm a Computer Science student in my fifth semester, and what I enjoy most is building every layer of a project: the database, the backend, the interface, and getting it live.",
       "Right now most of my curiosity goes into AI. I build small LLM and RAG tools and use them to get from an idea to something running, fast.",
     ],
   },
@@ -518,7 +518,7 @@ const de: Dict = {
       "Full-Stack-Entwickler",
     ],
     paragraphs: [
-      "Ich studiere Informatik im fünften Semester und baue am liebsten das ganze Ding: Datenbank, Backend, Oberfläche, und am Ende steht es online.",
+      "Ich studiere Informatik im fünften Semester, und am meisten Spaß macht mir, jede Ebene eines Projekts zu bauen: Datenbank, Backend, Oberfläche, bis es online steht.",
       "Im Moment dreht sich meine Neugier vor allem um KI. Ich baue kleine LLM- und RAG-Tools und nutze sie, um aus einer Idee schnell etwas Lauffähiges zu machen.",
     ],
   },
