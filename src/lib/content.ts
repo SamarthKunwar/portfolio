@@ -34,6 +34,12 @@ export const siteMeta = {
   url: siteUrl,
   email: "samarthkunwar2002@gmail.com",
   /**
+   * Path (in /public) to a headshot. Drop e.g. `public/photo.jpg` and set
+   * this to "/photo.jpg" — it shows in the hero. Any aspect ratio works
+   * (it's cropped square). Leave "" to hide it.
+   */
+  photo: "",
+  /**
    * Path (in /public) to a résumé PDF. Left empty on purpose — the CV PDF
    * has a home address, phone number and date of birth on it. Make a
    * web-safe version first, then set this to "/resume.pdf".
@@ -223,17 +229,17 @@ const en: Dict = {
     status: "Open to working-student roles & internships",
     role: "CS student & software developer",
     paragraphs: [
-      "Fifth-semester B.Sc. Computer Science student. I build full-stack applications end to end: backend, database, frontend and cloud deployment.",
-      "AI is where a lot of my curiosity goes right now. I build LLM and RAG tools on the side and use them to turn ideas into working prototypes quickly.",
+      "I'm a Computer Science student in my fifth semester, and I like building the whole thing: the database, the backend, the interface, and getting it deployed.",
+      "Right now most of my curiosity goes into AI. I build small LLM and RAG tools and use them to get from an idea to something running, fast.",
     ],
   },
   about: {
     heading: "About",
     paragraphs: [
-      "I'm a fifth-semester B.Sc. Computer Science student at Hochschule Kaiserslautern. I split my time between building full-stack applications and building AI tools, and I'm drawn to the projects where the two meet.",
-      "I've been programming for about five years. My theoretical fundamentals (algorithms, systems and the maths behind them) come from my studies at Universität des Saarlandes, and I've turned them into hands-on, project-driven experience since moving to Hochschule Kaiserslautern.",
-      "On the application side, I've shipped a Java / Spring Boot + React marketplace to a Kubernetes cluster with a real CI/CD pipeline, and built smaller REST APIs end to end. On the AI side, I work with LLMs, RAG and semantic search (FAISS, Sentence-Transformers, local inference with Ollama), wiring models, APIs and data sources into applications that actually run.",
-      "I use modern AI coding tools and agents (Claude Code, GitHub Copilot, ChatGPT) daily to move from a use case to a working prototype quickly. I work independently and in a structured way, and I pick up new technology fast.",
+      "I study Computer Science at Hochschule Kaiserslautern, currently in my fifth semester. Two things pull at me about equally: building full-stack applications, and building AI tools. My favourite projects are the ones where both show up.",
+      "I've been writing code for about five years. The theory (algorithms, systems, the maths underneath) I picked up at Universität des Saarlandes. The habit of actually finishing and shipping things came after I moved to Kaiserslautern and started building projects from end to end.",
+      "On the software side, I've taken a Java / Spring Boot and React marketplace all the way to a Kubernetes cluster with a real CI/CD pipeline, and built a handful of smaller REST APIs from scratch. On the AI side, I work with LLMs, RAG and semantic search (FAISS, Sentence-Transformers, local models through Ollama), wiring them into things that hold up outside a notebook.",
+      "I lean on AI coding tools and agents (Claude Code, Copilot, ChatGPT) every day to get from an idea to a working prototype quickly. I work best on my own with a clear goal, and I pick up new tech fast.",
     ],
     facts: [
       { label: "Based in", value: "Saarbrücken, Germany" },
@@ -492,17 +498,17 @@ const de: Dict = {
     status: "Offen für Werkstudentenstellen & Praktika",
     role: "Informatikstudent & Softwareentwickler",
     paragraphs: [
-      "Informatikstudent (B.Sc.) im fünften Semester. Ich baue Full-Stack-Anwendungen von Anfang bis Ende: Backend, Datenbank, Frontend und Cloud-Deployment.",
-      "KI ist gerade das Thema, das mich am meisten reizt. In meiner Freizeit baue ich LLM- und RAG-Tools und nutze sie, um Ideen schnell in lauffähige Prototypen zu verwandeln.",
+      "Ich studiere Informatik im fünften Semester und baue am liebsten das ganze Ding: Datenbank, Backend, Oberfläche, und am Ende steht es online.",
+      "Im Moment dreht sich meine Neugier vor allem um KI. Ich baue kleine LLM- und RAG-Tools und nutze sie, um aus einer Idee schnell etwas Lauffähiges zu machen.",
     ],
   },
   about: {
     heading: "Über mich",
     paragraphs: [
-      "Ich bin Informatikstudent (B.Sc.) im fünften Semester an der Hochschule Kaiserslautern. Ich teile meine Zeit zwischen dem Bauen von Full-Stack-Anwendungen und dem Bauen von KI-Tools auf und mag besonders die Projekte, in denen beides zusammenkommt.",
-      "Ich programmiere seit etwa fünf Jahren. Meine theoretischen Grundlagen (Algorithmen, Systeme und die Mathematik dahinter) stammen aus meinem Studium an der Universität des Saarlandes, und seit dem Wechsel an die Hochschule Kaiserslautern habe ich sie in praktische, projektbezogene Erfahrung umgesetzt.",
-      "Auf der Anwendungsseite habe ich einen Marktplatz mit Java / Spring Boot und React auf einem Kubernetes-Cluster mit echter CI/CD-Pipeline ausgeliefert und kleinere REST-APIs komplett selbst gebaut. Auf der KI-Seite arbeite ich mit LLMs, RAG und semantischer Suche (FAISS, Sentence-Transformers, lokale Inferenz mit Ollama) und verbinde Modelle, APIs und Datenquellen zu Anwendungen, die tatsächlich laufen.",
-      "Ich setze täglich moderne KI-Entwicklungstools und Coding-Agents (Claude Code, GitHub Copilot, ChatGPT) ein, um schnell von einem Use Case zu einem lauffähigen Prototyp zu kommen. Ich arbeite selbstständig und strukturiert und eigne mir neue Technologien schnell an.",
+      "Ich studiere Informatik an der Hochschule Kaiserslautern, aktuell im fünften Semester. Zwei Dinge reizen mich ungefähr gleich stark: Full-Stack-Anwendungen zu bauen und KI-Tools zu bauen. Meine liebsten Projekte sind die, in denen beides vorkommt.",
+      "Ich programmiere seit etwa fünf Jahren. Die Theorie (Algorithmen, Systeme, die Mathematik darunter) habe ich an der Universität des Saarlandes gelernt. Die Angewohnheit, Dinge wirklich fertigzustellen und auszuliefern, kam, nachdem ich nach Kaiserslautern gewechselt bin und angefangen habe, Projekte von Anfang bis Ende zu bauen.",
+      "Auf der Softwareseite habe ich einen Marktplatz mit Java / Spring Boot und React bis auf einen Kubernetes-Cluster mit echter CI/CD-Pipeline gebracht und einige kleinere REST-APIs von Grund auf gebaut. Auf der KI-Seite arbeite ich mit LLMs, RAG und semantischer Suche (FAISS, Sentence-Transformers, lokale Modelle über Ollama) und verbinde sie zu Dingen, die auch außerhalb eines Notebooks funktionieren.",
+      "Ich nutze täglich KI-Entwicklungstools und Coding-Agents (Claude Code, Copilot, ChatGPT), um schnell von einer Idee zu einem lauffähigen Prototyp zu kommen. Am besten arbeite ich selbstständig mit einem klaren Ziel, und ich eigne mir neue Technik schnell an.",
     ],
     facts: [
       { label: "Standort", value: "Saarbrücken, Deutschland" },

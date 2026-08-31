@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getDict, siteMeta, socials, type Locale } from "@/lib/content";
 import Reveal from "./Reveal";
 import CopyEmail from "./CopyEmail";
@@ -14,7 +15,22 @@ export default function Hero({ lang }: { lang: Locale }) {
       <div className="container-page grid w-full gap-y-12 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:gap-x-12">
         {/* Left rail — meta */}
         <div className="flex flex-col gap-6">
-          <Reveal>
+          {siteMeta.photo ? (
+            <Reveal>
+              <div className="relative aspect-square w-36 overflow-hidden rounded-2xl border border-[var(--color-border)]">
+                <Image
+                  src={siteMeta.photo}
+                  alt={siteMeta.name}
+                  fill
+                  sizes="144px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </Reveal>
+          ) : null}
+
+          <Reveal delay={siteMeta.photo ? 0.05 : 0}>
             <div className="space-y-2">
               <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--color-muted)]">
                 {t.ui.email}
