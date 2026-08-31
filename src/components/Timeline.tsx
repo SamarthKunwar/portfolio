@@ -32,7 +32,7 @@ export default function Timeline({ items }: { items: TimelineEntry[] }) {
       />
 
       {items.map((item, i) => (
-        <Reveal as="li" key={item.title} delay={i * 0.06}>
+        <Reveal as="li" key={`${item.title}-${item.meta}`} delay={i * 0.06}>
           <div className="relative pb-10 pl-6 last:pb-0">
             <motion.span
               className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-[var(--color-accent)]"
