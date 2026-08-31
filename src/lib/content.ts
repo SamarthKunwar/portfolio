@@ -38,7 +38,7 @@ export const siteMeta = {
    * this to "/photo.jpg" — it shows in the hero. Any aspect ratio works
    * (it's cropped square). Leave "" to hide it.
    */
-  photo: "",
+  photo: "/photo.jpg",
   /**
    * Path (in /public) to a résumé PDF. Left empty on purpose — the CV PDF
    * has a home address, phone number and date of birth on it. Make a
