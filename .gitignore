@@ -44,3 +44,8 @@ next-env.d.ts
 .claude/
 .factory/
 scratchpad/
+
+# agent / design tooling
+/AGENTS.md
+/CLAUDE.md
+/design-system/

@@ -3,11 +3,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
-/**
- * Re-mounts on every route change, so this cross-fades content when moving
- * between the home page and a case study. Opacity only — a transform here
- * would break the fixed navbar / progress bar during the transition.
- */
+// Cross-fade between routes. Opacity only: a transform here would drag the
+// fixed navbar and progress bar.
 export default function Template({ children }: { children: ReactNode }) {
   const reduce = useReducedMotion();
   if (reduce) return <>{children}</>;

@@ -60,7 +60,7 @@ export default function Navbar({ lang }: { lang: Locale }) {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled
-          ? "border-b border-[var(--color-border)] bg-white/80 backdrop-blur"
+          ? "border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur"
           : "border-b border-transparent"
       }`}
     >

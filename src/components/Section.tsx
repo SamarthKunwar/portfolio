@@ -4,10 +4,8 @@ import SectionHeading from "./SectionHeading";
 type SectionProps = {
   id: string;
   title: string;
-  /** optional short line under the title */
   lead?: string;
   children: ReactNode;
-  /** tint the section background */
   surface?: boolean;
 };
 

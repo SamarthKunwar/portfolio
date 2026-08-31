@@ -9,10 +9,8 @@ const initials = siteMeta.name
   .map((w) => w[0])
   .join("");
 
-/**
- * Brief intro curtain on the first visit of a session. Renders in the SSR
- * markup so it covers the first paint; a repeat visit skips it (quick fade).
- */
+// Intro curtain on the first visit of a session (SSR-rendered so it covers
+// first paint). Repeat visits skip it with a quick fade.
 export default function Preloader() {
   const reduce = useReducedMotion();
   const [visible, setVisible] = useState(true);
@@ -23,11 +21,11 @@ export default function Preloader() {
     try {
       seen = sessionStorage.getItem("intro-seen") === "1";
     } catch {
-      /* storage unavailable — just play it */
+      /* ignore */
     }
     const instant = seen || reduce;
-    // The flag is written only after the intro has run, so React's
-    // dev-mode double-invoked effect doesn't skip it on the second pass.
+    // Flag is written only after the intro runs, so a double-invoked effect
+    // in dev doesn't skip it on the second pass.
     const t = setTimeout(
       () => {
         if (instant) setSkip(true);

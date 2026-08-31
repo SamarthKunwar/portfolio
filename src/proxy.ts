@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { locales, defaultLocale } from "@/lib/content";
 
-/** Paths that must never be locale-prefixed (metadata routes, well-known files). */
+// Never locale-prefix these (metadata routes, well-known files).
 const RESERVED = [
   "/icon",
   "/apple-icon",

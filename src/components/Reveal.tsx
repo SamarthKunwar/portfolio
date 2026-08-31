@@ -5,7 +5,7 @@ import type { ElementType, ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
-  /** stagger helper — seconds */
+  /** seconds */
   delay?: number;
   className?: string;
   as?: "div" | "li" | "section";
@@ -16,10 +16,8 @@ const variants: Variants = {
   visible: { opacity: 1, y: 0, filter: "blur(0px)" },
 };
 
-/**
- * Scroll-reveal: a blurred rise that eases in once on enter.
- * Renders a plain, fully-visible element under reduced-motion.
- */
+// Scroll-in wrapper: blurred rise, once on enter. Plain element under
+// reduced-motion.
 export default function Reveal({
   children,
   delay = 0,

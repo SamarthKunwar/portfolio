@@ -3,10 +3,8 @@
 import { useEffect, useState } from "react";
 import type { Locale } from "@/lib/content";
 
-/**
- * Live local time in Saarbrücken (Europe/Berlin), shown under "Based in".
- * Renders nothing until mounted so the server / client markup can't disagree.
- */
+// Local time in Europe/Berlin. Renders nothing until mounted to avoid a
+// hydration mismatch.
 export default function LocalTime({ lang }: { lang: Locale }) {
   const [time, setTime] = useState<string | null>(null);
 

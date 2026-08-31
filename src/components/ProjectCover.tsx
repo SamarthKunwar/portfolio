@@ -3,12 +3,9 @@
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ProjectCoverVariant } from "@/lib/content";
 
-/**
- * Generated cover artwork for project cards — self-contained SVG, no assets.
- * The geometry draws itself in when the card scrolls into view: strokes
- * trace on (pathLength), then nodes pop with a small spring. Respects
- * prefers-reduced-motion (renders the final state immediately).
- */
+// Self-drawing SVG cover art for the project cards. Strokes trace on via
+// pathLength, then nodes pop; final state renders immediately under
+// reduced-motion or when animate={false}.
 
 const ACCENT = "var(--color-accent)";
 const INK = "var(--color-fg)";
@@ -336,7 +333,6 @@ export default function ProjectCover({
 }: {
   variant: ProjectCoverVariant;
   className?: string;
-  /** Set false to render the final state with no draw-in animation. */
   animate?: boolean;
 }) {
   const reduce = useReducedMotion();

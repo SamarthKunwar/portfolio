@@ -1,10 +1,5 @@
-/**
- * ─────────────────────────────────────────────────────────────
- *  SITE CONTENT — English + German.
- *  Locale-independent facts live in `siteMeta` / `socials` /
- *  `projectMeta`. Everything language-specific lives in `dict`.
- * ─────────────────────────────────────────────────────────────
- */
+// Site content. Locale-independent data in siteMeta / socials / projectMeta;
+// all copy in the en / de dictionaries below.
 
 export const locales = ["en", "de"] as const;
 export type Locale = (typeof locales)[number];
@@ -14,15 +9,9 @@ export function isLocale(value: string): value is Locale {
   return (locales as readonly string[]).includes(value);
 }
 
-/* ── Locale-independent ──────────────────────────────────────── */
-
-/**
- * Canonical site origin, used for <title>, OpenGraph, canonical/alternate
- * links and the sitemap. Resolution order:
- *   1. NEXT_PUBLIC_SITE_URL   — set this in Vercel once you have a custom domain
- *   2. VERCEL_PROJECT_PRODUCTION_URL — auto-set by Vercel (your-app.vercel.app)
- *   3. localhost              — local dev fallback
- */
+// Canonical origin for <title>, OpenGraph, canonical links and the sitemap.
+// Set NEXT_PUBLIC_SITE_URL for a custom domain; otherwise the platform URL,
+// then localhost.
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -33,17 +22,10 @@ export const siteMeta = {
   name: "Samarth Kunwar",
   url: siteUrl,
   email: "samarthkunwar2002@gmail.com",
-  /**
-   * Path (in /public) to a headshot. Drop e.g. `public/photo.jpg` and set
-   * this to "/photo.jpg" — it shows in the hero. Any aspect ratio works
-   * (it's cropped square). Leave "" to hide it.
-   */
+  // Headshot in /public, cropped square for the hero. "" hides it.
   photo: "/photo.jpg",
-  /**
-   * Path (in /public) to a résumé PDF. Left empty on purpose — the CV PDF
-   * has a home address, phone number and date of birth on it. Make a
-   * web-safe version first, then set this to "/resume.pdf".
-   */
+  // Résumé PDF in /public. Empty until a web-safe version exists (the
+  // original CV has personal contact details on it).
   resumeUrl: "",
 } as const;
 
@@ -63,7 +45,7 @@ export const socials: SocialLink[] = [
   { label: "Email", href: `mailto:${siteMeta.email}`, icon: "Mail" },
 ];
 
-/** Section anchors, in page order. Labels come from the dictionary. */
+// Section anchors in page order; labels come from the dictionary.
 export const navItems = [
   "about",
   "experience",
@@ -82,7 +64,7 @@ export type ProjectMeta = {
   repo?: string;
   demo?: string;
   cover?: ProjectCoverVariant;
-  /** Real screenshot in /public — takes priority over `cover`. */
+  // Real screenshot in /public; takes priority over cover.
   image?: string;
   featured?: boolean;
 };
@@ -131,7 +113,7 @@ export const projectMeta: ProjectMeta[] = [
   },
 ];
 
-/* ── Dictionary types ────────────────────────────────────────── */
+// Dictionary types
 
 type Fact = { label: string; value: string };
 type TimelineItem = {
@@ -177,9 +159,9 @@ export type Dict = {
   };
   hero: {
     status: string;
-    /** Canonical role, used for metadata / the OG image. */
+    // Canonical role (metadata / OG image).
     role: string;
-    /** Cycled in the hero subtitle. */
+    // Cycled in the hero subtitle.
     roles: string[];
     paragraphs: string[];
   };
@@ -195,7 +177,7 @@ export type Dict = {
   contact: { heading: string; blurb: string };
 };
 
-/* ── English ─────────────────────────────────────────────────── */
+// English
 
 const en: Dict = {
   localeName: "English",
@@ -471,7 +453,7 @@ const en: Dict = {
   },
 };
 
-/* ── German ──────────────────────────────────────────────────── */
+// German
 
 const de: Dict = {
   localeName: "Deutsch",
@@ -747,7 +729,7 @@ const de: Dict = {
   },
 };
 
-/* ── Access helpers ──────────────────────────────────────────── */
+// Access helpers
 
 const dictionaries: Record<Locale, Dict> = { en, de };
 

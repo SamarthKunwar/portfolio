@@ -54,7 +54,7 @@ export default function Hero({ lang }: { lang: Locale }) {
     : { variants: container, initial: "hidden" as const, animate: "visible" as const };
   const itemAnim = reduce ? {} : { variants: item };
 
-  // Photo tilts toward the pointer (same spring feel as the project cards).
+  // Photo tilts toward the pointer.
   const px = useMotionValue(0.5);
   const py = useMotionValue(0.5);
   const spring = { stiffness: 170, damping: 20 };
@@ -126,7 +126,6 @@ export default function Hero({ lang }: { lang: Locale }) {
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                   priority
                 />
-                {/* faint warm wash + inner hairline so the photo reads as part of the paper */}
                 <span
                   aria-hidden
                   className="pointer-events-none absolute inset-0 bg-[var(--color-accent)] opacity-[0.05] mix-blend-multiply"

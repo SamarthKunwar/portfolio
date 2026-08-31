@@ -1,11 +1,6 @@
 @import "tailwindcss";
 
-/*
- * Design system: Minimalism & Swiss Style (light only)
- * Palette: warm ivory paper + espresso ink + golden-hour amber accent
- * (tuned to sit with the hero photo). Type: Inter Tight / Inter
- * Generated with the ui-ux-pro-max skill — see /design-system/samarth-portfolio/MASTER.md
- */
+/* Warm ivory paper, espresso ink, golden-hour amber accent. Light only. */
 
 @theme {
   --color-bg: #faf6ef;

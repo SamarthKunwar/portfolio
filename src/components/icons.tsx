@@ -1,4 +1,4 @@
-/** Brand marks — this version of lucide-react ships no brand icons. */
+// lucide-react ships no brand icons, so these are inline.
 
 export function GithubMark({ size = 18 }: { size?: number }) {
   return (

@@ -1,8 +1,4 @@
-/**
- * Fixed film-grain layer over the whole page. One static SVG fractal-noise
- * tile, desaturated and multiplied onto the warm paper so only faint specks
- * show. Purely decorative: pointer-events-none, aria-hidden, no JS.
- */
+// Fixed film-grain layer: one tiled SVG noise texture, multiplied over the page.
 const NOISE =
   "data:image/svg+xml," +
   encodeURIComponent(
