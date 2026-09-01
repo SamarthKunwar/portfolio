@@ -328,6 +328,7 @@ const en: Dict = {
           "Matplotlib",
           "R",
           "Feature engineering",
+          "Microsoft Office",
         ],
       },
       {
@@ -611,6 +612,7 @@ const de: Dict = {
           "Matplotlib",
           "R",
           "Feature Engineering",
+          "Microsoft Office",
         ],
       },
       {
