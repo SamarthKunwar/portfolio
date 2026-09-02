@@ -104,6 +104,7 @@ export const projectMeta: ProjectMeta[] = [
     slug: "rateme",
     tech: ["Java 21", "Spring Boot", "MySQL", "Leaflet", "Docker", "OpenAPI"],
     repo: "https://github.com/SamarthKunwar/Rate-me",
+    demo: "https://rate-me-0fnm.onrender.com/",
     cover: "map",
   },
   {
