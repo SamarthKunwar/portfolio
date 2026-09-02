@@ -81,6 +81,7 @@ export const projectMeta: ProjectMeta[] = [
       "Streamlit",
     ],
     repo: "https://github.com/SamarthKunwar/vehicle-connect-rag",
+    demo: "https://vehicle-connect-rag-q83rv2fhgz4srnrmywf7hs.streamlit.app/",
     cover: "rag",
     featured: true,
   },
