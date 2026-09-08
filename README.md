@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Click to open my portfolio
 
-https://portfolio-dun-beta-44.vercel.app/de#projects
+https://portfolio-dun-beta-44.vercel.app/de
 
 ## Getting Started
 
