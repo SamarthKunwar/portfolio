@@ -319,11 +319,79 @@ function Neural() {
   );
 }
 
+function Shield() {
+  const missed = [
+    { x: 55, y: 55 },
+    { x: 55, y: 145 },
+    { x: 335, y: 50 },
+    { x: 335, y: 100 },
+    { x: 335, y: 150 },
+  ];
+  const caught = [
+    { x: 145, y: 62 },
+    { x: 145, y: 138 },
+  ];
+  const envelope = (x: number, y: number, color: string, opacity: number) => (
+    <>
+      <rect
+        x={x - 15}
+        y={y - 9}
+        width="30"
+        height="18"
+        rx="2"
+        fill="none"
+        stroke={color}
+        strokeOpacity={opacity}
+        strokeWidth="1.5"
+      />
+      <path
+        d={`M${x - 15} ${y - 9} L${x} ${y + 3} L${x + 15} ${y - 9}`}
+        fill="none"
+        stroke={color}
+        strokeOpacity={opacity}
+        strokeWidth="1.5"
+      />
+    </>
+  );
+  return (
+    <>
+      {missed.map((m, i) => (
+        <motion.g key={`m${i}`} variants={popV} style={nodeStyle}>
+          {envelope(m.x, m.y, INK, 0.22)}
+        </motion.g>
+      ))}
+      <motion.path
+        d="M200 38 L240 55 L240 108 C240 145 200 165 200 165 C200 165 160 145 160 108 L160 55 Z"
+        fill={SURFACE}
+        stroke={INK}
+        strokeOpacity="0.5"
+        strokeWidth="1.5"
+        variants={strokeV}
+      />
+      <motion.path
+        d="M180 102 L195 117 L222 82"
+        fill="none"
+        stroke={ACCENT}
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        variants={strokeV}
+      />
+      {caught.map((c, i) => (
+        <motion.g key={`c${i}`} variants={popV} style={nodeStyle}>
+          {envelope(c.x, c.y, ACCENT, 0.95)}
+        </motion.g>
+      ))}
+    </>
+  );
+}
+
 const shapes: Record<ProjectCoverVariant, () => React.ReactElement> = {
   rag: Rag,
   cloud: Cloud,
   map: MapCover,
   neural: Neural,
+  shield: Shield,
 };
 
 export default function ProjectCover({

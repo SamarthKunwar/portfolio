@@ -56,7 +56,7 @@ export const navItems = [
 ] as const;
 export type NavId = (typeof navItems)[number];
 
-export type ProjectCoverVariant = "rag" | "cloud" | "map" | "neural";
+export type ProjectCoverVariant = "rag" | "cloud" | "map" | "neural" | "shield";
 
 export type ProjectMeta = {
   slug: string;
@@ -112,6 +112,11 @@ export const projectMeta: ProjectMeta[] = [
     slug: "neural-network-from-scratch",
     tech: ["Python", "NumPy"],
     cover: "neural",
+  },
+  {
+    slug: "ai-phishing-detection",
+    tech: ["Python", "scikit-learn", "TF-IDF", "Random Forest", "DistilBERT", "Hugging Face", "pandas"],
+    cover: "shield",
   },
 ];
 
@@ -237,7 +242,7 @@ const en: Dict = {
       "I've been writing code for about five years. The theory (algorithms, systems, the maths underneath) I picked up at Universität des Saarlandes; the habit of actually finishing and shipping things came after I moved to Kaiserslautern and started taking projects all the way to done. Somewhere in there it stopped feeling like coursework and started feeling like the thing I want to do.",
       "On the software side I've taken a Java, Spring Boot and React marketplace from prototype to a Kubernetes cluster with a real CI/CD pipeline, and written a handful of REST APIs from scratch. On the AI side I build with LLMs, RAG and semantic search (FAISS, Sentence-Transformers, local models through Ollama) and wire them into things that hold up outside a notebook. When a new tool or paper lands, I usually have a small version of it running by the weekend.",
       "I lean on AI coding agents (Claude Code, Copilot, ChatGPT) every day to get from an idea to a working prototype fast. I do my best work with a clear goal and room to figure out the how, I pick up new tech quickly, and I'm looking for a working-student role or internship where I can build real things next to people who have shipped more than I have.",
-      "Away from the keyboard I play a lot of chess and get outside as much as I can, hiking and staying active in nature. It is how I think things through and come back to the screen with a clearer head.",
+      "Away from the keyboard I play a lot of chess, get outside as much as I can hiking, and unwind with gaming and music. It is how I think things through and come back to the screen with a clearer head.",
     ],
     facts: [
       { label: "Based in", value: "Saarbrücken, Germany" },
@@ -245,7 +250,7 @@ const en: Dict = {
       { label: "Focus", value: "Full-stack apps · AI & LLM tools" },
       { label: "Currently", value: "B.Sc. Applied CS · 5th semester" },
       { label: "Languages", value: "German C1 · English & Hindi native" },
-      { label: "Away from code", value: "Chess · hiking · the outdoors" },
+      { label: "Away from code", value: "Chess · hiking · gaming · music" },
     ],
   },
   experience: {
@@ -454,6 +459,28 @@ const en: Dict = {
           "A concrete, mechanical understanding of what a framework's training step is actually doing under the hood.",
         ],
       },
+      "ai-phishing-detection": {
+        name: "AI-Generated Phishing vs. AI Detection",
+        description:
+          "Hausarbeit testing whether phishing detectors trained on old-style scams still catch phishing written by an LLM.",
+        detail:
+          "Compared two TF-IDF Random Forest detectors and a pre-trained DistilBERT transformer on traditional phishing plus 450 held-out AI-generated messages across three styles. All three caught almost all traditional phishing but only a small fraction of the AI-style messages.",
+        challenge: [
+          "For my Hausarbeit at Hochschule Kaiserslautern I wanted to test something specific: phishing filters are usually judged on old, static datasets, but an attacker with an LLM can now write phishing that reads like ordinary business mail. I wanted to know whether today's detectors actually generalise to that, or whether they are just pattern-matching on the clumsy writing traditional phishing used to have.",
+          "So I built an evaluation where the AI-written phishing was never shown to the detectors during training, only at test time. That's the only way to measure genuine generalisation instead of memorisation.",
+        ],
+        process: [
+          "Generated 450 synthetic phishing e-mails with an LLM across three styles (generic, spear-style, and a deliberately low-key evasion style), fully synthetic with fictional organisations and non-routable domains for safety.",
+          "Trained two TF-IDF + Random Forest detectors (word-level and character-level) on a balanced baseline of 5,000 legitimate and 5,000 traditional phishing e-mails, holding all 450 AI-style messages out of training.",
+          "Ran a pre-trained DistilBERT transformer on the same held-out test set for a like-for-like comparison.",
+          "Evaluated all three on accuracy, precision, recall and detection rate per source type, since a single aggregate score hides which attack category a detector actually misses.",
+        ],
+        outcomes: [
+          "All three detectors caught 95 to 98% of traditional phishing but only 2 to 13% of AI-style phishing overall, and 0% of the spear-phishing messages: a gap of roughly 85 to 93 percentage points.",
+          "The transformer detected slightly more AI-style phishing than either Random Forest, but also flagged 23% of legitimate e-mails, giving it the lowest overall accuracy of the three.",
+          "The result argues that content analysis alone is not enough against AI-written phishing: it needs to be paired with sender authentication (SPF, DKIM, DMARC) and link reputation, plus training data that gets refreshed regularly.",
+        ],
+      },
     },
   },
   contact: {
@@ -521,7 +548,7 @@ const de: Dict = {
       "Ich programmiere seit etwa fünf Jahren. Die Theorie (Algorithmen, Systeme, die Mathematik darunter) habe ich an der Universität des Saarlandes gelernt; die Angewohnheit, Dinge wirklich fertigzustellen und auszuliefern, kam, nachdem ich nach Kaiserslautern gewechselt bin und Projekte bis zum Ende gebracht habe. Irgendwann hat es sich nicht mehr wie Studienstoff angefühlt, sondern wie das, was ich machen will.",
       "Auf der Softwareseite habe ich einen Marktplatz mit Java, Spring Boot und React vom Prototyp bis auf einen Kubernetes-Cluster mit echter CI/CD-Pipeline gebracht und einige REST-APIs von Grund auf geschrieben. Auf der KI-Seite baue ich mit LLMs, RAG und semantischer Suche (FAISS, Sentence-Transformers, lokale Modelle über Ollama) und verbinde sie zu Dingen, die auch außerhalb eines Notebooks funktionieren. Wenn ein neues Tool oder Paper erscheint, läuft bei mir meist bis zum Wochenende eine kleine Version davon.",
       "Ich nutze täglich KI-Coding-Agents (Claude Code, Copilot, ChatGPT), um schnell von einer Idee zu einem lauffähigen Prototyp zu kommen. Meine beste Arbeit mache ich mit einem klaren Ziel und Freiraum für das Wie, ich eigne mir neue Technik schnell an, und ich suche eine Werkstudentenstelle oder ein Praktikum, in dem ich echte Dinge bauen und von Leuten lernen kann, die mehr ausgeliefert haben als ich.",
-      "Abseits der Tastatur spiele ich viel Schach und bin so oft wie möglich draußen, beim Wandern und in Bewegung in der Natur. So denke ich Dinge durch und komme mit klarerem Kopf an den Bildschirm zurück.",
+      "Abseits der Tastatur spiele ich viel Schach, bin so oft wie möglich draußen beim Wandern und entspanne mit Gaming und Musik. So denke ich Dinge durch und komme mit klarerem Kopf an den Bildschirm zurück.",
     ],
     facts: [
       { label: "Standort", value: "Saarbrücken, Deutschland" },
@@ -529,7 +556,7 @@ const de: Dict = {
       { label: "Schwerpunkt", value: "Full-Stack-Apps · KI- & LLM-Tools" },
       { label: "Aktuell", value: "B.Sc. Angewandte Informatik · 5. Semester" },
       { label: "Sprachen", value: "Deutsch C1 · Englisch & Hindi Muttersprache" },
-      { label: "Abseits vom Code", value: "Schach · Wandern · Natur" },
+      { label: "Abseits vom Code", value: "Schach · Wandern · Gaming · Musik" },
     ],
   },
   experience: {
@@ -736,6 +763,28 @@ const de: Dict = {
         outcomes: [
           "Ein Netz, das nur mit selbst geschriebener Matrix-Mathematik trainiert und generalisiert: Initialisierung, Forward Pass, Backward Pass und Gewichts-Updates.",
           "Ein konkretes, mechanisches Verständnis dessen, was ein Framework-Trainingsschritt unter der Haube tatsächlich tut.",
+        ],
+      },
+      "ai-phishing-detection": {
+        name: "KI-generiertes Phishing vs. KI-Erkennung",
+        description:
+          "Hausarbeit, die testet, ob Phishing-Detektoren, die auf altem Phishing trainiert wurden, auch von einem Sprachmodell geschriebenes Phishing erkennen.",
+        detail:
+          "Zwei TF-IDF-Random-Forest-Detektoren und ein vortrainierter DistilBERT-Transformer wurden auf traditionellem Phishing sowie 450 zurückgehaltenen KI-generierten Nachrichten in drei Stilen verglichen. Alle drei erkannten fast das gesamte traditionelle Phishing, aber nur einen kleinen Teil der KI-Nachrichten.",
+        challenge: [
+          "Für meine Hausarbeit an der Hochschule Kaiserslautern wollte ich etwas Konkretes testen: Phishing-Filter werden meist an alten, statischen Datensätzen gemessen, aber ein Angreifer mit einem Sprachmodell kann heute Phishing schreiben, das wie ganz normale Geschäftspost klingt. Ich wollte wissen, ob heutige Detektoren darauf wirklich generalisieren, oder ob sie nur auf die holprige Sprache reagieren, die traditionelles Phishing früher hatte.",
+          "Also habe ich eine Auswertung gebaut, bei der das KI-geschriebene Phishing den Detektoren beim Training nie gezeigt wurde, sondern nur beim Testen. Nur so lässt sich echte Generalisierung von reinem Auswendiglernen unterscheiden.",
+        ],
+        process: [
+          "450 synthetische Phishing-E-Mails mit einem Sprachmodell in drei Stilen generiert (generisch, Spear-Style und ein bewusst unauffälliger Evasion-Style), vollständig synthetisch mit fiktiven Organisationen und nicht routbaren Domains aus Sicherheitsgründen.",
+          "Zwei TF-IDF- + Random-Forest-Detektoren (Wort- und Zeichenebene) auf einem ausgeglichenen Basisdatensatz aus 5.000 legitimen und 5.000 traditionellen Phishing-E-Mails trainiert, wobei alle 450 KI-Nachrichten vom Training ausgeschlossen blieben.",
+          "Einen vortrainierten DistilBERT-Transformer auf demselben zurückgehaltenen Testset laufen lassen, für einen direkten Vergleich.",
+          "Alle drei anhand von Genauigkeit, Precision, Recall und Erkennungsrate pro Quellentyp ausgewertet, weil ein einzelner Gesamtwert verdeckt, welche Angriffskategorie ein Detektor tatsächlich verpasst.",
+        ],
+        outcomes: [
+          "Alle drei Detektoren erkannten 95 bis 98 % des traditionellen Phishings, aber nur 2 bis 13 % des KI-Phishings insgesamt und 0 % der Spear-Phishing-Nachrichten: eine Lücke von etwa 85 bis 93 Prozentpunkten.",
+          "Der Transformer erkannte etwas mehr KI-Phishing als beide Random-Forest-Modelle, markierte aber auch 23 % der legitimen E-Mails fälschlich, was ihm von den dreien die niedrigste Gesamtgenauigkeit einbrachte.",
+          "Das Ergebnis zeigt, dass Inhaltsanalyse allein gegen KI-geschriebenes Phishing nicht ausreicht: Sie sollte mit Absenderauthentifizierung (SPF, DKIM, DMARC), Link-Reputation und regelmäßig aktualisierten Trainingsdaten kombiniert werden.",
         ],
       },
     },
